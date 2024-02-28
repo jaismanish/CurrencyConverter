@@ -20,16 +20,19 @@ type Currency string
 const (
 	INR Currency = "INR"
 	USD Currency = "USD"
+	EUR Currency = "EUR"
 )
 
 var CurrencyMap = map[string]Currency{
 	"INR": INR,
 	"USD": USD,
+	"EUR": EUR,
 }
 
 var conversionRate = map[Currency]float32{
 	INR: 1,
 	USD: 83,
+	EUR: 93,
 }
 
 func (c Currency) convertToBase(amount float32) float32 {

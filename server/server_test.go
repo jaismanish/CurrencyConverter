@@ -59,7 +59,7 @@ func runTest(t *testing.T, initialCurrency, finalCurrency string, amount, expect
 	}
 }
 
-// --------------------------------------------------------
+// --------------------------------------------------
 
 func TestConvert_USDToINR(t *testing.T) {
 	runTest(t, "USD", "INR", 100, 8300)
@@ -67,6 +67,14 @@ func TestConvert_USDToINR(t *testing.T) {
 
 func TestConvert_INRToUSD(t *testing.T) {
 	runTest(t, "INR", "USD", 83, 1)
+}
+
+func TestConvert_INRToEUR(t *testing.T) {
+	runTest(t, "INR", "EUR", 93, 1)
+}
+
+func TestConvert_EURToINR(t *testing.T) {
+	runTest(t, "EUR", "INR", 1, 93)
 }
 
 func TestConvert_SameCurrencyINR(t *testing.T) {
@@ -78,5 +86,5 @@ func TestConvert_SameCurrencyUSD(t *testing.T) {
 }
 
 func TestConvert_UnsupportedCurrency(t *testing.T) {
-	runTest(t, "EUR", "INR", 100, 0)
+	runTest(t, "XYZ", "INR", 100, 0)
 }
